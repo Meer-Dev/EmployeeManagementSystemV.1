@@ -1,0 +1,24 @@
+meta {
+  name: 04_FilterByDepartment
+  type: http
+  seq: 4
+}
+
+get {
+  url: {{baseUrl}}/api/employees?Department=HR
+  body: none
+  auth: inherit
+}
+
+params:query {
+  Department: HR
+}
+
+headers {
+  Authorization: Bearer {{token}}
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

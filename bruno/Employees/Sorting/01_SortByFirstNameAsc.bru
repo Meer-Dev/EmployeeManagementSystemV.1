@@ -1,0 +1,26 @@
+meta {
+  name: 01_SortByFirstNameAsc
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{baseUrl}}/api/employees?pageSize=10&sortBy=lastname&ascending=true
+  body: none
+  auth: inherit
+}
+
+params:query {
+  pageSize: 10
+  sortBy: lastname
+  ascending: true
+}
+
+headers {
+  Authorization: Bearer {{token}}
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

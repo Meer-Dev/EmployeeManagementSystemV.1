@@ -1,0 +1,32 @@
+meta {
+  name: 01_Create
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{baseUrl}}/api/employees
+  body: json
+  auth: inherit
+}
+
+headers {
+  Authorization: Bearer {{token}}
+}
+
+body:json {
+  {
+    "firstName": "Jane",
+    "lastName": "Doe",
+    "email": "jane@example.com",
+    "department": "IT",
+    "password": "SecurePass123!",
+    "role": "User"
+  }
+  
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

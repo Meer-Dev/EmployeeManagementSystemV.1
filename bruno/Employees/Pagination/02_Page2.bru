@@ -1,0 +1,25 @@
+meta {
+  name: 02_Page2
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{baseUrl}}/api/employees?pageSize=50&pageNumber=8990
+  body: none
+  auth: inherit
+}
+
+params:query {
+  pageSize: 50
+  pageNumber: 8990
+}
+
+headers {
+  Authorization: Bearer {{token}}
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

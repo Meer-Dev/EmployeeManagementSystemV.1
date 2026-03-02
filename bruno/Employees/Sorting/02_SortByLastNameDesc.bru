@@ -1,0 +1,27 @@
+meta {
+  name: 02_SortByLastNameDesc
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{baseUrl}}/api/employees?pageSize=10&pageNumber=2&sortBy=email&ascending=false
+  body: none
+  auth: inherit
+}
+
+params:query {
+  pageSize: 10
+  pageNumber: 2
+  sortBy: email
+  ascending: false
+}
+
+headers {
+  Authorization: Bearer {{token}}
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

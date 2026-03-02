@@ -1,0 +1,14 @@
+@EmployeeManagement.API_HostAddress = https://localhost:5000
+
+
+###
+POST https://localhost:5000/api/employees
+Content-Type: application/json
+
+{
+  "firstName": "123",
+  "lastName": "Doe",
+  "email": "john.doeexamplecom",
+  "department": "IT",
+  "isActive": true
+}

@@ -1,0 +1,20 @@
+meta {
+  name: 04_Delete
+  type: http
+  seq: 4
+}
+
+delete {
+  url: {{baseUrl}}/api/employees/1192559
+  body: none
+  auth: inherit
+}
+
+headers {
+  Authorization: Bearer {{token}}
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

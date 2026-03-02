@@ -1,0 +1,29 @@
+meta {
+  name: 03_Patch
+  type: http
+  seq: 3
+}
+
+patch {
+  url: {{baseUrl}}/api/employees/1247675
+  body: json
+  auth: inherit
+}
+
+headers {
+  Content-Type: application/json
+  Authorization: Bearer {{token}}
+}
+
+body:json {
+  {
+    "id": 1247675,
+     "role": "admin"
+  }
+  
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

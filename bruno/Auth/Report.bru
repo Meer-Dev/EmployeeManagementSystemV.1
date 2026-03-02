@@ -1,0 +1,15 @@
+meta {
+  name: Report
+  type: http
+  seq: 4
+}
+
+post {
+  url: {{baseUrl}}/api/employees/report/daily
+  body: none
+  auth: inherit
+}
+
+settings {
+  encodeUrl: true
+}

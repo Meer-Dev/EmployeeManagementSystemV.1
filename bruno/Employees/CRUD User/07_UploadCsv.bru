@@ -1,0 +1,25 @@
+meta {
+  name: 07_UploadCsv
+  type: http
+  seq: 7
+}
+
+post {
+  url: {{baseUrl}}/api/employees/upload
+  body: multipartForm
+  auth: inherit
+}
+
+headers {
+  Authorization: Bearer {{token}}
+}
+
+body:multipart-form {
+  file: @file(D:\projects\EmployeeManagementSystem\EmployeeManagementSystem\EmployeeManagement\bruno\Employees\emp.csv)
+  ~file: @file(D:\projects\EmployeeManagementSystem\EmployeeManagementSystem\EmployeeManagement\bruno\Employees\emp100k.csv)
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

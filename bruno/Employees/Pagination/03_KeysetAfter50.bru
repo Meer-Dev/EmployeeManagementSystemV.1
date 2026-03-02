@@ -1,0 +1,27 @@
+meta {
+  name: 03_KeysetAfter50
+  type: http
+  seq: 3
+}
+
+get {
+  url: {{baseUrl}}/api/employees?pageSize=50&lastSeenId=499500&sortBy=id&ascending=true
+  body: none
+  auth: inherit
+}
+
+params:query {
+  pageSize: 50
+  lastSeenId: 499500
+  sortBy: id
+  ascending: true
+}
+
+headers {
+  Authorization: Bearer {{token}}
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

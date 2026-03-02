@@ -1,0 +1,24 @@
+meta {
+  name: 02_FilterByLastName
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{baseUrl}}/api/employees?lastName=fareed
+  body: none
+  auth: inherit
+}
+
+params:query {
+  lastName: fareed
+}
+
+headers {
+  Authorization: Bearer {{token}}
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

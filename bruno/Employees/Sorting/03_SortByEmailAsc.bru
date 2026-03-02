@@ -1,0 +1,25 @@
+meta {
+  name: 03_SortByEmailAsc
+  type: http
+  seq: 3
+}
+
+get {
+  url: {{baseUrl}}/api/employees?sortBy=email&ascending=false
+  body: none
+  auth: inherit
+}
+
+params:query {
+  sortBy: email
+  ascending: false
+}
+
+headers {
+  Authorization: Bearer {{token}}
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

@@ -1,0 +1,25 @@
+meta {
+  name: 06_GetAll
+  type: http
+  seq: 6
+}
+
+get {
+  url: {{baseUrl}}/api/employees?pagesize=100
+  body: none
+  auth: inherit
+}
+
+params:query {
+  pagesize: 100
+}
+
+headers {
+  Content-Type: application/json
+  Authorization: Bearer {{token}}
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}
