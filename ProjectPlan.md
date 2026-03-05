@@ -1,10 +1,3 @@
-Here is the **Ultimate Enterprise EMS Master Prompt**. This is designed to be saved as `PROJECT_SPEC.md` in your root directory and referenced by Cursor/Copilot using `@PROJECT_SPEC.md`.
-
-It includes the **Backend Normalization Scan**, **SSE Implementation**, **Enterprise Feature Expansion**, **In-Depth Request Flow**, and **Deployment Guide**.
-
----
-
-# 📂 Save as: `PROJECT_SPEC.md`
 
 ```markdown
 # 🚀 PROJECT SPECIFICATION: Enterprise Employee Management System (EMS)
@@ -227,14 +220,3 @@ volumes: [pgdata]
 
 3.  **SSE Implementation:**
     *   Say: *"Create the SSE service in Frontend and the corresponding Controller in Backend as per Section 2.3. Test the progress bar flow."*
-
-4.  **Deployment:**
-    *   Say: *"Generate the Dockerfile and docker-compose.yml based on Section 5. Ensure environment variables are secured."*
-
-### 💡 Why This Prompt is Superior
-1.  **Forces Backend Scan:** Prevents the AI from writing frontend code for a backend that doesn't exist or is poorly structured.
-2.  **Normalization Enforcement:** Explicitly demands relational data modeling (Departments, Roles, Logs) instead of a simple CRUD app.
-3.  **Granular Flow:** The **Request Flow** section ensures the AI doesn't skip interceptors, correlation IDs, or audit logs.
-4.  **SSE Specifics:** Gives exact instructions on how to handle real-time streams (a common pain point).
-5.  **DevOps Ready:** Includes Docker and CI/CD specs, making the project deployable immediately.
-6.  **Self-Correction:** The "Missing Feature Detection" section forces the AI to double-check its own work against enterprise standards.
