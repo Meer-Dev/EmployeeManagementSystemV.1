@@ -1,12 +1,3 @@
-Alright. You want two distinct, battle-tested roadmaps:
-
-1.  **The 90-Day Sprint**: Get you from "I understand but can't write" to "I can build and interview for senior backend/AI roles."
-2.  **The 2-3 Year Marathon**: Take you from senior to **top 1% Staff/Principal AI Infrastructure Engineer**.
-
-I'm going to give you exactly what I'd give a high-potential engineer on my team. No fluff. No theory. Just execution.
-
----
-
 # 🚀 PART 1: THE 90-DAY SPRINT (Detailed Week-by-Week)
 
 **Goal**: Become a **strong mid-to-senior .NET backend engineer** with AI infrastructure exposure. Able to pass technical interviews, build production-grade APIs, and debug complex systems.
