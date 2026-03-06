@@ -1,223 +1,317 @@
-# 🚀 UPDATED 90-DAY SPRINT + 3-YEAR MARATHON (AI Infrastructure Edition)
+# 🗺️ PERSONALIZED ROADMAP: .NET Backend → AI Infrastructure Engineer
+### *Re-baselined from Your Completed Weeks 1-6 | 90-Day Sprint + 3-Year Marathon*
 
-**Goal**: Become a **Top 1% .NET Backend Engineer** with specialized **AI Infrastructure** skills.
-**New Focus Areas Added**: **MCP (Model Context Protocol)**, **Agentic Workflows**, **AI Security (OWASP)**, **AI Evaluation**, **High-Performance .NET (SIMD)**, **FinOps**.
-
-**Time Commitment**: 3-4 hours/day, 6 days/week.
-**Mindset**: Don't just build APIs. Build **interoperable, secure, evaluated AI systems**.
-
----
-
-## 📚 UPDATED READING & RESOURCE LIST
-
-| Resource | Type | When | Why |
-|----------|------|------|-----|
-| **CLR via C#** | Book | Weeks 1-4 | Memory, GC, Async internals. |
-| **DDIA** | Book | Weeks 5-8 | Distributed systems truth. |
-| **Designing ML Systems** | Book | Weeks 9-12 | ML Infra lifecycle. |
-| **OWASP Top 10 for LLM** | Checklist | Week 11 | **NEW:** AI Security standards. |
-| **Semantic Kernel Docs** | Docs | Weeks 9-10 | **NEW:** .NET AI Orchestration standard. |
-| **Model Context Protocol (Spec)** | Spec | Week 10 | **NEW:** Standard for AI Tooling. |
+> **Your Current Position**: ✅ Clean Architecture, CQRS/MediatR, EF Core, JWT Auth, Testing, Hangfire, Redis, GraphQL basics  
+> **Your Goal**: Top 1% .NET Backend Engineer with **AI Infrastructure specialization**  
+> **Time Commitment**: 3-4 hrs/day, 6 days/week  
+> **Mindset**: *Don't just build APIs. Build interoperable, secure, evaluated AI systems.*
 
 ---
 
-## 🗓️ PART 1: THE 90-DAY SPRINT (Week-by-Week)
+## 🔄 ROADMAP ADJUSTMENT: What You've Already Mastered
 
-### **MONTH 1: C# Internals + High Perf + DSA**
-*Focus: Mastering memory & performance foundational for AI data processing.*
+| Completed Skill | Original Roadmap Week | Status | How to Leverage |
+|----------------|----------------------|--------|----------------|
+| Clean Architecture + CQRS/MediatR | Week 7 | ✅ Done | Use as foundation for **AI event pipelines** |
+| EF Core + SQL + Repository Pattern | Week 5 | ✅ Done | Extend with **PgVector** for embeddings |
+| JWT Auth + Policy-Based Authorization | Week 11 (Security) | ✅ Done | Add **AI guardrails**: PII scrubbing, prompt injection filters |
+| xUnit + Moq + MediatR Testing | Week 11 (Evals) | ✅ Done | Build **LLM-as-a-Judge eval harness** on top |
+| Hangfire + Redis Caching | Week 3 + Observability | ✅ Done | Upgrade to **semantic caching** for AI queries |
+| Deployment + CI/CD Basics | Week 11 (DevOps) | ✅ Done | Add **AI-specific metrics** to pipelines |
 
-#### **Week 1: Memory, Types, and High-Performance C#**
-- **CLR via C#**: Ch 4 (Types), Ch 5 (Primitive/Reference)
-- **NEW**: Learn `Span<T>`, `Memory<T>`, and `System.Numerics.Vectors` (SIMD).
-- **DSA Focus**: Arrays, Strings, Two Pointers.
-- **LeetCode**: [1] Two Sum, [121] Stock, [242] Anagram, [3] Substring, [11] Container.
-- **Code Task**: Build a custom `List<T>` **using `Span<T>` for internal buffer management** to reduce allocations.
-- **Deliverable**: GitHub repo with `List<T>` + 5 LC problems + benchmark showing allocation reduction vs. standard `List<T>`.
+🎯 **You've compressed ~7 weeks of foundational work into 6 weeks.**  
+➡️ **New Strategy**: Skip redundant fundamentals. Jump straight into **AI Infrastructure differentiators** while reinforcing performance internals.
 
-#### **Week 2: GC Internals + Hash Maps**
-- **CLR via C#**: Ch 10 (Memory), Ch 11 (GC)
-- **DSA Focus**: Hash Maps, Sets.
-- **LeetCode**: [49] Group Anagrams, [347] Top K, [128] Consecutive, [217] Duplicate, [380] Random O(1).
-- **Code Task**: Build LRU Cache. **NEW**: Use `dotnet-counters` to monitor GC pressure while adding 1M items.
-- **Deliverable**: LRU Cache + GC Analysis notes (Gen 0/1/2 stats).
+---
 
-#### **Week 3: Async/Await + Trees**
-- **CLR via C#**: Ch 27 (Async Patterns), Ch 28 (Mechanics)
-- **DSA Focus**: Trees, DFS, BFS.
-- **LeetCode**: [104] Depth, [226] Invert, [102] Level Order, [235] LCA, [98] Validate BST.
-- **Code Task**: Multi-threaded web scraper using `Channel<T>` and `SemaphoreSlim`. **NEW**: Ensure zero-allocation in the hot path using `ValueTask`.
-- **Deliverable**: Async scraper + 5 tree problems.
+## 🗓️ REVISED 90-DAY SPRINT (Week-by-Week)
 
-#### **Week 4: Threading, TPL + Graphs**
-- **CLR via C#**: Ch 29 (Synchronization)
-- **DSA Focus**: Graphs, Topological Sort.
-- **LeetCode**: [200] Islands, [133] Clone Graph, [207] Course Schedule, [79] Word Search, [323] Components.
-- **Code Task**: Background job processor (`BackgroundService`).
-- **Interview Prep**: Record explanation: "Async/await state machines & `Span<T>` benefits."
-- **Deliverable**: Job system + Graph problems + Video explanation.
+### **MONTH 1: High-Performance C# + AI Data Foundations**  
+*Focus: Master memory, GC, and SIMD for AI preprocessing workloads.*
+
+#### **Week 7: Memory Internals + `Span<T>` + Vector Data**
+- **Read**: CLR via C# Ch 4 (Types), Ch 5 (Primitive/Reference)
+- **NEW Skill**: `Span<T>`, `Memory<T>`, `ArrayPool<T>` for zero-allocation parsing
+- **AI Context**: Preprocess text/chunks for embeddings without GC pressure
+- **Hands-on**: 
+  - Refactor one MediatR handler to use `Span<T>` for string parsing
+  - Add **PgVector** to your Employee Management DB; store sample embeddings
+- **LeetCode**: [1] Two Sum, [121] Stock, [242] Anagram, [3] Substring, [11] Container *(use Span<T> where possible)*
+- **Deliverable**: 
+  - GitHub PR with `Span<T>` optimization + benchmark report (BenchmarkDotNet)
+  - Employee API with vector-enabled field (e.g., `SkillsEmbedding`)
+
+#### **Week 8: GC Deep Dive + Allocation Profiling + Embedding Pipeline**
+- **Read**: CLR via C# Ch 10 (Memory), Ch 11 (GC)
+- **Tools**: `dotnet-counters`, `dotnet-gcdump`, `dotnet-trace`
+- **AI Context**: Profile memory while generating 10K embeddings
+- **Hands-on**:
+  - Build a **chunking service**: PDF/text → clean → chunk → embed (use `Memory<T>` for buffers)
+  - Monitor Gen 0/1/2 collections during batch processing
+- **LeetCode**: [49] Group Anagrams, [347] Top K, [128] Consecutive, [217] Duplicate, [380] Random O(1)
+- **Deliverable**: 
+  - Embedding ingestion pipeline + GC analysis report (screenshots + insights)
+  - LeetCode solutions with allocation-conscious implementations
+
+#### **Week 9: Async/Await Internals + Semantic Kernel Integration**
+- **Read**: CLR via C# Ch 27-28 (Async Patterns & Mechanics)
+- **NEW Skill**: `ValueTask`, `Channel<T>`, `IAsyncEnumerable<T>` for streaming AI responses
+- **AI Stack**: Microsoft Semantic Kernel (SK) plugins, function calling
+- **Hands-on**:
+  - Wrap your embedding pipeline as a **Semantic Kernel Plugin**
+  - Add an "Ask HR" endpoint: RAG over employee handbook using SK
+- **LeetCode**: [104] Depth, [226] Invert, [102] Level Order, [235] LCA, [98] Validate BST
+- **Deliverable**: 
+  - SK plugin prototype + RAG endpoint with streaming response
+  - Async scraper utility using `Channel<T>` (reusable for AI data ingestion)
+
+#### **Week 10: SIMD + High-Perf Preprocessing + MCP Intro**
+- **Read**: System.Numerics.Vectors docs; SIMD intrinsics basics
+- **NEW Skill**: `Vector<T>`, hardware-accelerated math for embedding similarity
+- **AI Context**: Accelerate cosine similarity calculations for vector search
+- **Hands-on**:
+  - Implement SIMD-accelerated cosine similarity for PgVector results
+  - Read **Model Context Protocol (MCP) Spec**; draft a .NET MCP server interface
+- **LeetCode**: [200] Islands, [133] Clone Graph, [207] Course Schedule, [79] Word Search, [323] Components
+- **Deliverable**: 
+  - Benchmark: SIMD vs. naive cosine similarity (show 5-10x speedup)
+  - MCP interface design doc + GitHub issue for Week 11 implementation
 
 **Month 1 Success Metrics**:
-- ✅ 20 LeetCode problems.
-- ✅ Understand GC, Async, **and `Span<T>`/SIMD basics**.
-- ✅ Built 3 utilities with performance in mind.
+- ✅ 20 LeetCode problems (with performance-conscious solutions)
+- ✅ Profiling report: GC pressure reduced by X% in embedding pipeline
+- ✅ Working SK plugin + RAG endpoint in your Employee API
+- ✅ MCP design doc ready for implementation
 
 ---
 
-### **MONTH 2: Distributed Systems + Architecture + Observability**
-*Focus: Building robust backends that can support AI workloads.*
+### **MONTH 2: AI Orchestration + Observability + Security**
 
-#### **Week 5: PostgreSQL Deep Dive + DDIA Ch 1-3**
-- **DDIA**: Ch 1-3 (Reliability, Data Models, Storage)
-- **Database**: Indexes, Query Plans, **JSONB storage** (for AI metadata).
-- **Code Task**: REST API (EF Core + Dapper). **NEW**: Store vector metadata in JSONB columns.
-- **DSA**: Heaps, Priority Queues.
-- **LeetCode**: [215] Kth Largest, [295] Median, [767] Reorganize String.
-- **Deliverable**: API with Query Plan analysis + Heap problems.
+#### **Week 11: Build a .NET MCP Server**
+- **Read**: MCP Specification (https://modelcontextprotocol.io)
+- **Goal**: Expose your Employee API tools via MCP for AI agent interoperability
+- **Hands-on**:
+  - Implement MCP server endpoints: `tools/list`, `tools/call`
+  - Expose: `search_employees`, `get_policy_document`, `submit_feedback`
+  - Connect to Cursor/Claude/Ollama client to test tool usage
+  - Add **semantic caching**: cache similar MCP calls to reduce token usage
+- **LeetCode**: [215] Kth Largest, [295] Median, [767] Reorganize String, [208] Trie, [211] Add/Search Words
+- **Deliverable**: 
+  - ✅ Working .NET MCP Server (GitHub repo)
+  - Demo video: AI agent using your tools via MCP
+  - Caching logic with hit/miss metrics
 
-#### **Week 6: Messaging + Event-Driven**
-- **DDIA**: Ch 5 (Replication), Ch 6 (Partitioning)
-- **Messaging**: RabbitMQ or **Azure Service Bus**.
-- **Code Task**: Pub/Sub system. **NEW**: Publish "DocumentProcessed" events for AI pipelines.
-- **DSA**: Tries, String Matching.
-- **LeetCode**: [208] Trie, [211] Add/Search Words, [139] Word Break.
-- **Deliverable**: Event-driven API + Trie problems.
+#### **Week 12: AI Security + OWASP LLM Top 10 + Guardrails**
+- **Read**: OWASP Top 10 for LLM Applications (https://owasp.org/www-project-top-10-for-large-language-model-applications/)
+- **Focus**: Prompt injection, data leakage, insecure output handling
+- **Hands-on**:
+  - Build **PII Scrubbing Middleware**: detect/redact emails, SSNs, phone numbers before LLM calls
+  - Implement **output validation**: block toxic/leaked content from AI responses
+  - Add **rate limiting + anomaly detection** for AI endpoints
+- **LeetCode**: [139] Word Break, [70] Stairs, [198] Robber, [322] Coin Change, [46] Permutations
+- **Deliverable**: 
+  - Security middleware + test suite (positive/negative cases)
+  - Threat model doc for your AI-enhanced Employee API
 
-#### **Week 7: Consistency + CQRS**
-- **DDIA**: Ch 11 (Stream Processing), Ch 12 (Future)
-- **Architecture**: CQRS, Event Sourcing.
-- **Code Task**: Refactor API to CQRS. **NEW**: Separate "Write" (ingest) from "Read" (query) models.
-- **DSA**: Dynamic Programming (1D).
-- **LeetCode**: [70] Stairs, [198] Robber, [322] Coin Change, [139] Word Break (DP).
-- **Deliverable**: CQRS service + DP problems.
+#### **Week 13: AI Evaluation Harness + Observability**
+- **Concept**: "Don't ship AI on vibes. Ship on eval scores."
+- **Hands-on**:
+  - Build an **Evaluation Harness**: LLM-as-a-Judge for RAG quality
+  - Metrics: Faithfulness, Relevance, Answer Relevance, Toxicity
+  - Instrument with OpenTelemetry: track tokens, latency, model name, cache hits
+  - Export to Prometheus/Grafana dashboard
+- **LeetCode**: [78] Subsets, [56] Merge Intervals, [253] Meeting Rooms, [300] LIS, [190] Reverse Bits
+- **Deliverable**: 
+  - Eval script + sample report (20 Q&A pairs scored)
+  - Grafana dashboard screenshot: AI endpoint SLOs
 
-#### **Week 8: System Design + AI Observability**
-- **System Design**: URL Shortener, Rate Limiter.
-- **Observability**: Serilog + OpenTelemetry. **NEW**: Add **LLM Tracing** (track token usage, latency, model name as attributes).
-- **Code Task**: Health checks, structured logging. **NEW**: Export traces to Prometheus/Aspire.
-- **DSA**: Backtracking, Intervals.
-- **LeetCode**: [46] Permutations, [78] Subsets, [56] Merge Intervals, [253] Meeting Rooms.
-- **Deliverable**: Observable service + 2 Mock System Design interviews.
+#### **Week 14: Production Polish + Portfolio + Interview Prep**
+- **Portfolio**:
+  1. High-Perf Utils Repo (`Span<T>`, SIMD, benchmarks)
+  2. AI-Augmented Employee API (CQRS + SK + MCP + Security)
+  3. MCP Server Demo (with video)
+- **Resume Bullets**:
+  - "Built .NET MCP Server enabling AI agent interoperability"
+  - "Reduced embedding pipeline allocations by 40% using Span<T>"
+  - "Implemented OWASP LLM guardrails: PII scrubbing, output validation"
+- **Interview Prep**:
+  - Record 3 explanations: Async state machines, GC tuning for AI, MCP tradeoffs
+  - Mock: "Design an AI-powered HR assistant for 10K employees"
+- **Deliverable**: 
+  - Polished GitHub profile + READMEs with live demos
+  - Resume PDF + 3-min "elevator pitch" video
 
 **Month 2 Success Metrics**:
-- ✅ System Design mastery.
-- ✅ Event-driven microservice.
-- ✅ **Observability includes AI-specific metrics (tokens, latency)**.
+- ✅ Working MCP Server with semantic caching
+- ✅ AI Security middleware passing OWASP LLM checks
+- ✅ Eval harness with quantifiable RAG quality scores
+- ✅ Portfolio ready for Senior/AI Infra roles
 
 ---
 
-### **MONTH 3: AI Infrastructure + Security + Production**
-*Focus: The Top 1% Differentiators (MCP, Agents, Security, Evals).*
+### **MONTH 3: Scale, Cost & Leadership Prep**
 
-#### **Week 9: AI Fundamentals + Vector Search + Semantic Kernel**
-- **Designing ML Systems**: Ch 1, 2
-- **AI Stack**: Embeddings, Vector DB (PgVector/Qdrant).
-- **NEW**: **Microsoft Semantic Kernel (SK)** introduction.
-- **Code Task**: Ingestion Pipeline (PDF → Chunk → Embed → Store). **NEW**: Wrap this logic in a **SK Plugin**.
-- **DSA**: Advanced DP, Bit Manipulation.
-- **LeetCode**: [300] LIS, [198] Robber II, [190] Reverse Bits, [136] Single Number.
-- **Deliverable**: Ingestion pipeline + SK Plugin prototype.
+#### **Week 15: FinOps for AI + Cost Tracking**
+- **Concept**: Treat tokens like memory: measure, budget, optimize
+- **Hands-on**:
+  - Add **cost attribution middleware**: track $/request for AI endpoints
+  - Implement **adaptive caching**: skip LLM call if cache hit + confidence > threshold
+  - Build a **budget alert system**: notify when AI spend exceeds threshold
+- **Deliverable**: Cost dashboard + optimization report (show 30% token savings)
 
-#### **Week 10: Agentic Workflows + MCP Server**
-- **Designing ML Systems**: Ch 4, 6, 7
-- **NEW**: **Model Context Protocol (MCP)**.
-- **Code Task**: **Build a .NET MCP Server**.
-    - Expose your DB/Search tools via MCP.
-    - Connect to a local AI client (Cursor/Claude) to test tool usage.
-    - Implement **Semantic Caching** (cache similar queries to save tokens).
-- **DSA**: Graph Advanced, Union Find.
-- **LeetCode**: [721] Accounts Merge, [305] Islands II, [128] Consecutive (Union Find).
-- **Deliverable**: **Working MCP Server** + Caching logic + Graph problems.
+#### **Week 16: Advanced Patterns + OSS Contribution**
+- **Goal**: Move from user → contributor in AI ecosystem
+- **Hands-on**:
+  - Contribute to Semantic Kernel or MCP SDK: fix bug, add example, improve docs
+  - Write technical blog: "Building MCP Servers in .NET: Lessons Learned"
+  - Design ADR: "When to use MCP vs. gRPC vs. REST for AI tooling"
+- **Deliverable**: 
+  - Merged PR in OSS AI project
+  - Published blog post + ADR in your repo
 
-#### **Week 11: AI Security + Evals + DevOps**
-- **NEW Security**: **OWASP Top 10 for LLM** (Prompt Injection, Data Leakage).
-- **NEW Evals**: Build an **Evaluation Harness** (LLM-as-a-Judge).
-- **DevOps**: Docker, GitHub Actions, Azure Container Apps.
-- **Code Task**:
-    1.  Implement **PII Scrubbing Middleware** (block SSNs/Emails before LLM).
-    2.  Create a test dataset (20 Q&A pairs) and run an eval script to score your RAG accuracy.
-- **Interview Prep**: 3 Coding Mocks, 2 System Design, 2 Behavioral.
-- **Deliverable**: **Secure, Evaluated AI Service** + CI/CD Pipeline.
+#### **Week 17: System Design for AI at Scale**
+- **Mock Interviews**: 
+  1. "Design an AI inference platform for 1M users"
+  2. "How would you serve LLMs with <100ms p99 latency + data residency?"
+- **Focus**: Multi-region, model routing, fallback strategies, hybrid cloud
+- **Deliverable**: System design diagrams + tradeoff analysis doc
 
-#### **Week 12: Final Polish + Portfolio + Job Prep**
-- **Portfolio**: READMEs for: 1. High-Perf Utils, 2. Event-Driven API, 3. **MCP Agentic Server**.
-- **Resume**: Highlight "MCP Server", "AI Security", "Semantic Kernel", "Eval Harness".
-- **Interview Prep**: Review CLR, Async, **AI Tradeoffs**.
-- **Final Task**: Build a "URL Shortener with Analytics" in 4 hours. **NEW**: Add a feature where an AI agent summarizes the analytics via MCP.
-- **Deliverable**: Polished Portfolio, Resume, Confidence.
+#### **Week 18: Final Portfolio Polish + Job Strategy**
+- **Portfolio Audit**: Ensure every project has:
+  - ✅ Working demo (Docker compose / Azure Container Apps)
+  - ✅ Performance metrics (benchmarks, GC stats)
+  - ✅ Security/eval documentation
+  - ✅ Clear "Why this matters for AI Infra" narrative
+- **Job Prep**:
+  - Target roles: Senior .NET Engineer (AI Infra), AI Platform Engineer, ML Infrastructure Engineer
+  - Companies: Microsoft, AWS, Azure AI partners, AI-first startups
+- **Deliverable**: 
+  - Final portfolio site (GitHub Pages / Vercel)
+  - Application tracker + outreach plan
 
 **Month 3 Success Metrics**:
-- ✅ **Built an MCP Server (Interoperable AI)**.
-- ✅ **Implemented AI Security & Evals**.
-- ✅ 60+ LeetCode problems.
-- ✅ Ready for Senior/AI Infra roles.
+- ✅ Cost-optimized AI endpoints with $/request tracking
+- ✅ OSS contribution + technical blog published
+- ✅ System design mastery for AI-scale scenarios
+- ✅ Portfolio that screams "Top 1% AI Infrastructure Engineer"
 
 ---
 
-## 🏆 PART 2: THE 2-3 YEAR MARATHON (Top 1% Trajectory)
-
-**Mindset**: From "Building Features" to "Architecting Ecosystems & Managing Cost/Risk".
+## 🏆 REVISED 3-YEAR MARATHON (Top 1% Trajectory)
 
 ### **Phase 1: Months 4-12 — Senior Engineer Mastery**
 | Quarter | Focus | Key Activities |
 |---------|-------|---------------|
-| **Q2 (Months 4-6)** | Distributed Systems Deep Dive | - Finish DDIA.<br>- Build Kafka-based Event Sourcing.<br>- **NEW**: Learn **Consensus (Raft)** for AI state.<br>- DSA: 50 more problems (Hard). |
-| **Q3 (Months 7-9)** | AI Infrastructure Depth | - **NEW**: Build a **Feature Store** prototype.<br>- Learn Model Monitoring (Drift Detection).<br>- **NEW**: Contribute to **Semantic Kernel** or **MCP SDK** OSS.<br>- Write 1 article on "Building MCP Servers in .NET". |
-| **Q4 (Months 10-12)** | Production Excellence | - Lead Monolith → Microservices migration.<br>- Master Kubernetes (K8s) & **KEDA** (event-driven scaling).<br>- **NEW**: Implement **FinOps** (track $/request for AI endpoints).<br>- Write 2 technical blog posts. |
+| **Q2 (Months 4-6)** | Distributed AI Systems | - Build Kafka-based event sourcing for AI audit trails<br>- Implement **Raft consensus** for multi-replica AI state<br>- DSA: 50 Hard problems (focus: graphs, DP) |
+| **Q3 (Months 7-9)** | AI Infrastructure Depth | - Build a **Feature Store** prototype for employee skills/embeddings<br>- Add model monitoring: drift detection for RAG quality<br>- Contribute to **Semantic Kernel** or **MCP SDK** OSS<br>- Write: "Building MCP Servers in .NET" |
+| **Q4 (Months 10-12)** | Production Excellence | - Lead migration: monolith → microservices for AI services<br>- Master K8s + **KEDA** for event-driven AI scaling<br>- Implement **FinOps**: track $/request, auto-scale based on cost SLOs<br>- Write 2 technical blog posts |
 
 **Deliverables**:
-- ✅ Led architectural decision (ADR).
-- ✅ **Published article on AI Interoperability (MCP)**.
-- ✅ **Implemented Cost Tracking for AI**.
-- ✅ 110+ LeetCode problems.
+- ✅ Led architectural decision (ADR) for AI system
+- ✅ Published article on AI Interoperability (MCP)
+- ✅ Implemented Cost Tracking for AI endpoints
+- ✅ 110+ LeetCode problems (60% Hard)
 
 ### **Phase 2: Year 2 — Staff Engineer Trajectory**
 | Half | Focus | Key Activities |
 |------|-------|---------------|
-| **H1 (Months 13-18)** | System Design & Scale | - Design: YouTube, Uber, **AI Inference Platform**.<br>- Advanced Patterns: Saga, Sharding.<br>- **NEW**: Network Programming (gRPC, **HTTP/2**, QUIC).<br>- Read: "System Design Interview Vol 2". |
-| **H2 (Months 19-24)** | AI at Scale (MLOps) | - Build **Multi-Tenant AI Platform**.<br>- **NEW**: Model Quantization & Batching for cost reduction.<br>- **NEW**: CI/CD for Models (Canary, A/B Testing).<br>- **NEW**: **Local AI/Edge Inference** (ONNX Runtime). |
+| **H1 (Months 13-18)** | AI Platform Design | - Design: AI Inference Platform, Multi-tenant RAG service<br>- Advanced Patterns: Saga for AI workflows, sharding for vector DBs<br>- Network Programming: gRPC, HTTP/2, QUIC for low-latency AI<br>- Read: "System Design Interview Vol 2" + "Designing Machine Learning Systems" |
+| **H2 (Months 19-24)** | MLOps at Scale | - Build **Multi-Tenant AI Platform** with isolation, quotas, billing<br>- Model Optimization: quantization, batching, ONNX Runtime for .NET<br>- CI/CD for Models: canary releases, A/B testing, rollback strategies<br>- Edge AI: ONNX Runtime + ML.NET for local inference |
 
 **Deliverables**:
-- ✅ Cross-service architecture design.
-- ✅ **Reduced AI Inference Cost by X%**.
-- ✅ Spoke at a meetup/conference.
-- ✅ 150+ LeetCode problems.
+- ✅ Cross-service architecture design doc (reviewed by staff+ engineers)
+- ✅ Reduced AI inference cost by X% via optimization
+- ✅ Spoke at meetup/conference on .NET AI Infra
+- ✅ 150+ LeetCode problems (70% Hard)
 
 ### **Phase 3: Year 3 — Principal/Top 1% Tier**
 | Focus Area | What to Master | How to Practice |
 |------------|---------------|-----------------|
-| **AI Governance & Security** | Compliance, Data Privacy, Adversarial Defense | Design a "Secure AI Gateway" that protects against all OWASP LLM Top 10 vectors. |
-| **Architecture Strategy** | Multi-region, Disaster Recovery, **Hybrid Cloud AI** | Design: "Serve LLMs to 10M users with <100ms latency & Data Residency compliance." |
-| **Performance at Extreme Scale** | Kernel bypass, eBPF, **Custom GC Tuning for AI** | Profile service to handle 100K RPS with <10ms p99 latency. |
-| **Leadership** | RFCs, Stakeholder Alignment, Technical Vision | Lead a cross-team initiative to standardize AI Tooling (MCP) across the org. |
+| **AI Governance & Security** | Compliance (GDPR, HIPAA), adversarial defense, auditability | Design "Secure AI Gateway" blocking all OWASP LLM Top 10 vectors |
+| **Architecture Strategy** | Multi-region, DR, hybrid cloud AI, data residency | Design: "Serve LLMs to 10M users with <100ms p99 + GDPR compliance" |
+| **Extreme Performance** | Kernel bypass, eBPF, custom GC tuning for AI workloads | Profile service to handle 100K RPS with <10ms p99 latency |
+| **Technical Leadership** | RFCs, stakeholder alignment, vision setting | Lead org-wide initiative to standardize AI tooling via MCP |
 
 **Deliverables**:
-- ✅ Authored RFC changing company architecture.
-- ✅ **Saved $X/year in AI Compute Costs**.
-- ✅ Published technical talk/paper.
-- ✅ Ready for Staff/Principal roles at Top Tier.
+- ✅ Authored RFC that changed company AI architecture
+- ✅ Saved $X/year in AI compute costs via optimization
+- ✅ Published technical talk/paper at major conference
+- ✅ Ready for Staff/Principal roles at FAANG/AI-first companies
 
 ---
 
-## 🔑 UPDATED TOP 1% DIFFERENTIATORS
+## 🔑 YOUR TOP 1% DIFFERENTIATORS (Updated)
 
-1.  **Interoperability (MCP)**: You don't build walled gardens. You build **MCP Servers** that allow any AI agent to use your tools securely.
-2.  **AI Security First**: You don't just trust the LLM. You implement **Input/Output Guardrails**, PII scrubbing, and Prompt Injection defense.
-3.  **Evaluation Driven**: You don't ship AI based on "vibes". You ship based on **Eval Scores** (Faithfulness, Relevance, Toxicity).
-4.  **Cost as Code**: You treat **Token Usage** like memory usage. You optimize it, cache it, and budget it.
-5.  **Performance Aware**: You know when to use `Span<T>`, SIMD, and ONNX to squeeze performance out of .NET for AI preprocessing.
-
----
-
-## ✅ YOUR STARTING LINE (Updated)
-
-1.  **Block Time**: 3-4 hours/day. Non-negotiable.
-2.  **Environment**: VS/Rider, Docker, PostgreSQL, **PgVector**, **Local LLM (Ollama)**.
-3.  **Repo**: `yourname/90-day-sprint`.
-4.  **Community**: .NET Discord, **AI Engineering Discord**.
-5.  **Accountability**: Tell someone you are building an **MCP Server** in 90 days.
+1.  **Interoperability First**: You build **MCP Servers**, not walled gardens. Any AI agent can securely use your tools.
+2.  **Security by Design**: You implement **input/output guardrails**, PII scrubbing, and prompt injection defense *before* shipping.
+3.  **Evaluation Driven**: You ship AI based on **quantifiable eval scores** (Faithfulness, Relevance, Toxicity), not vibes.
+4.  **Cost as Code**: You treat **token usage** like memory: profile it, cache it, budget it, optimize it.
+5.  **Performance Aware**: You know when to use `Span<T>`, SIMD, and ONNX to squeeze every ms out of .NET for AI preprocessing.
 
 ---
 
-In 90 days, you won't just be a .NET developer. You'll be an **AI Infrastructure Engineer**.
+## ✅ YOUR STARTING LINE (Re-baselined)
 
-**Go build.** 🚀
+1.  **Block Time**: 3-4 hours/day. Non-negotiable. Protect this time.
+2.  **Environment**: 
+    - VS/Rider + Docker + PostgreSQL + **PgVector**
+    - **Local LLM**: Ollama (llama3.2) for testing
+    - **Profiling**: `dotnet-counters`, `BenchmarkDotNet`, `dotnet-trace`
+3.  **Repo Structure**:
+    ```bash
+    yourname/ai-infra-sprint/
+    ├── 01-high-perf-utils/       # Span<T>, SIMD, benchmarks
+    ├── 02-employee-ai-api/       # Your internship project (AI-augmented)
+    ├── 03-mcp-server/            # Week 11 deliverable
+    ├── 04-eval-harness/          # LLM-as-a-Judge scripts
+    ├── docs/                     # GC reports, threat models, ADRs
+    └── README.md                 # Portfolio index with live demos
+    ```
+4.  **Community**: 
+    - .NET Discord (#ai, #performance)
+    - AI Engineering Discord (#mcp, #rag, #evals)
+    - Follow: @shanselman, @damianedwards, @aallspaw, @modelcontextprotocol
+5.  **Accountability**: 
+    - Tell your mentor: "I'm building an MCP Server in 30 days."
+    - Weekly check-in: Share 1 win + 1 blocker.
+
+---
+
+## 🎯 IMMEDIATE NEXT 48 HOURS
+
+```bash
+# 1. Setup performance tooling
+dotnet tool install --global dotnet-counters
+dotnet tool install --global dotnet-gcdump
+dotnet add package BenchmarkDotNet
+
+# 2. Add AI dependencies to your Employee API
+dotnet add package Pgvector.EntityFrameworkCore
+dotnet add package Microsoft.SemanticKernel
+dotnet add package OpenTelemetry.Exporter.Prometheus.AspNetCore
+
+# 3. Week 7 Task: Span<T> Refactor
+# Pick one MediatR handler (e.g., SearchEmployeesQuery)
+# Refactor string parsing/filtering to use Span<T>
+# Benchmark before/after allocations
+
+# 4. Document
+# Create docs/gc-analysis-week7.md
+# Record 2-min Loom: "Why Span<T> matters for AI preprocessing"
+```
+
+---
+
+## ❓ WHAT'S YOUR PRIORITY?
+
+Pick one, and I'll provide deep-dive resources:
+
+🔹 **Code Optimization**: Share a MediatR handler — I'll suggest `Span<T>`/zero-allocation refactors.  
+🔹 **AI Architecture**: Want a diagram for "AI-Augmented Employee API" with vector search + SK + MCP?  
+🔹 **Resource Curation**: Need exact chapters for CLR via C# + Semantic Kernel + MCP spec + OWASP LLM?  
+🔹 **Interview Prep**: Mock question: "How would you secure a RAG endpoint against prompt injection?"  
+
+**You're not just catching up. You're leapfrogging.**  
+Let's make every hour compound. 💪
+
+**What's your first move?** 🚀
